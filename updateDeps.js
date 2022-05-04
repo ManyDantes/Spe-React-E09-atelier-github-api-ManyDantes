@@ -7,7 +7,9 @@ function getDeps(type) {
       if (err || stderr) {
         reject(err);
       }
-      return resolve(JSON.parse(stdout).dependencies);
+      const res = JSON.parse(stdout).dependencies;
+      console.log("stdout", res);
+      resolve(res);
     });
   });
 }
@@ -15,9 +17,12 @@ function getDeps(type) {
 async function updateDeps() {
   try {
     const devDepsList = await getDeps('dev');
+    console.log("bar");
     const depsList = await getDeps('prod');
     const file = fs.readFileSync('package.json');
     const content = JSON.parse(file);
+
+    console.log(depsList)
 
     for (let devDep in content.devDependencies) {
       content.devDependencies[devDep] = `^${devDepsList[devDep].version}`;
@@ -30,7 +35,7 @@ async function updateDeps() {
     fs.writeFileSync('package.json', `${JSON.stringify(content, null, '  ')}\n`);
     console.log('Done');
   } catch (error) {
-    console.error(error);
+    console.error("error: ",error);
   }
 }
 

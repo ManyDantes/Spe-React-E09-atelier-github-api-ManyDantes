@@ -1,6 +1,6 @@
 // == Import
 import reactLogo from './react-logo.svg';
-import './styles.css';
+import './stylesApp.css';
 
 // == Composant
 function App() {

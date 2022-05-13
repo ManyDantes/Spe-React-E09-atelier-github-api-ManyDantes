@@ -1,0 +1,27 @@
+#container-seaarchBar{
+  position: relative;
+  width: 100%;
+}
+#searchBar{
+  width: 90%;
+  margin: 0 5%;
+  padding: 2% 0;
+  padding-left: 8%;
+  border: 2px solid grey;
+  font-size: 2vw;
+}
+
+#searchButton{
+  position: absolute;
+  left: 6%;
+  bottom: 5%;
+  height: 90%;
+  border: none;
+  background-color: white;
+}
+
+#search-img{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
